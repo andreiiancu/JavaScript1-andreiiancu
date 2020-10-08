@@ -2,13 +2,13 @@ console.log(object.age);
 console.log(object.surname);
 
 console.log(
-  ' Ma numesc ' +
+  'Ma numesc ' +
     object.name +
-    '' +
+    ' ' +
     object.surname +
-    'si am ' +
+    ' si am ' +
     object.age +
-    ' ani ',
+    ' ani.',
 );
 
 // Afiseaza anul in care te-ai nascut
