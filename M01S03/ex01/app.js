@@ -11,6 +11,15 @@ console.log(
     ' ani.',
 );
 
+console.log(
+  'xxx yyy' +
+    const str1
+    ' ' +
+    const str2
+    'are xx ani',
+)
+
+str; // 'Hello World'
 // Afiseaza anul in care te-ai nascut
 // scazand varsta din anul curent
-console.log(2020 - object.age / 2);
+console.log(object.year - object.age);
