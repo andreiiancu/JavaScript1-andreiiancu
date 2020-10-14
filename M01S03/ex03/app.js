@@ -51,8 +51,8 @@ carol.friends.andra = andra;
 
 // Folosind keywordul delete sterge prietenia dintre
 // Dragos si Larry (si invers).
-delete dragos.friends.larry;
 delete larry.friends.dragos;
+delete dragos.friends.larry;
 
 // Folosind obiectul Carol afiseaza
 // numele complet al lui Dragos.
@@ -63,3 +63,15 @@ console.log(
 // Folosind obiectul Anita afiseaza numarul
 // total de caractere al numelui complet al lui Dragos.
 console.log((andra.friends.dragos.name + andra.friends.dragos.surname).length);
+
+// Afiseaza numele complet al lui Dragos folosind
+// obiectul Larry.
+console.log(
+  `${larry.friends.steven.friends.dragos.name} ${larry.friends.steven.friends.dragos.surname}`,
+);
+
+// Afiseaza numele complet a lui Larry folosind
+// obiectul Dragos.
+console.log(
+  `${dragos.friends.andra.friends.steven.friends.larry.name} ${dragos.friends.andra.friends.steven.friends.larry.surname}`,
+);
