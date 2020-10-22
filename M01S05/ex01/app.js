@@ -21,8 +21,3 @@ console.log(
 // Foloseste keywordul return pentru a elimina nevoia de variabila
 // Optional: foloseste template strings (``)
 // Afiseaza mesajul “hh:mm:ss, am ajuns la Pixellab.”.
-
-function getTime() {
-  return new Date().getHours();
-  ('hh:mm:ss, am ajuns la Pixellab.');
-}

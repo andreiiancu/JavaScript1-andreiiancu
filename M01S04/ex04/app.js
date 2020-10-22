@@ -65,10 +65,3 @@ var i;
 
 // In mod similar, afiseaza doar numerele care sunt divizibile cu 5.
 // !-negare
-for (i = 1; i <= 100; i++) {
-  if (i % 5 !== 0) {
-    continue;
-  }
-
-  console.log(i);
-}
