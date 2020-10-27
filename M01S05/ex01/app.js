@@ -1,23 +1,27 @@
-// Stocheaza valoarea pentru ora intr-o variabila numita hours.
-// Apeleaza din consola (nu editor) variabila hours.
-// Stocheaza valoarea pentru minute intr-o variabila numita minutes.
-// Stocheaza valoarea pentru secunde intr-o variabila numita seconds.
-// Creeaza si afiseaza in consola un mesaj: “hh:mm:ss, am ajuns la Pixellab.”.
-// Adauga si milisecundele intr-o variabila numita milliseconds.
-// Schimba mesajul astfel incat sa afiseze si milisecundele.
-console.log(
-  new Date().getHours() +
-    ':' +
-    new Date().getMinutes() +
-    ':' +
-    new Date().getSeconds() +
-    ':' +
-    new Date().getMilliseconds(),
-  'hh:mm:ss:ms, am ajuns la Pixellab.',
-);
+// let date = new Date();
+// let hours = date.getHours(); //EX01/01
+// let minutes = date.getMinutes();
+// let seconds = date.getSeconds();
+// // let getMilliseconds = date.getMilliseconds();
 
-// Creeaza o functie numita getTime care sa salveze
-// intr-o variabila exactTime ora, minutele si secundele curente.
-// Foloseste keywordul return pentru a elimina nevoia de variabila
-// Optional: foloseste template strings (``)
-// Afiseaza mesajul “hh:mm:ss, am ajuns la Pixellab.”.
+// let message = `${hours}:${minutes}:${seconds}:${milliseconds}, am ajuns la Pixellab.`;
+
+function getTime() {
+  let date = new Date();
+  let hours = date.getHours(); //EX01/01
+  let minutes = date.getMinutes();
+  let seconds = date.getSeconds();
+  // let getMilliseconds = date.getMilliseconds();
+
+  // return `${hours}:${minutes}:${seconds}, am ajuns la Pixellab.`;
+  console.log(`${hours}:${minutes}:${seconds}, am ajuns la Pixellab.`);
+}
+// console.log(
+//   `${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}:${
+//     date.getMilliseconds
+//   }`,
+//   `Am ajuns la Pixellab`,
+// );
+// console.log(getTime);
+
+setInterval(getTime, 1000);
