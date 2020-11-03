@@ -15,5 +15,7 @@ let queryButton = document.getElementById('query');
 // pentru a afla varsta utilizatorului.
 button.addEventListener('click', prompt);
 queryButton.addEventListener('query', () => {
-  queryButton('Introdu o valoare:', prompt);
+  let age = prompt('Introdu varsta');
+  console.log(age);
 });
+//paragraph!!!
