@@ -89,3 +89,48 @@ for (let i = 0; i < friendsKeysArray.length; i++) {
     `${friendObject.name} este ${sentenceFragment} decat ${person.name}`,
   );
 }
+
+console.warn(`
+  Folosind Object.keys() pe proprietatea skills, afiseaza abilitatile persoanei.
+`);
+Object.keys(person.skills);
+console.log(person.skills);
+
+console.warn(`
+Prin aceeasi metoda, afiseaza o lista cu numele complet al prietenilor.
+`);
+Object.keys(person.friends).forEach(function (keyName) {
+  console.log(person.friends[keyName]);
+});
+
+console.warn(`
+   Afiseaza propozitia: “Prietenii mei sunt Larry Larryson, Steven Stevenson si Carol Carolson.” folosind Object.keys()
+`);
+//Nu-mi iese...
+
+console.warn(`
+  Folosind bucla, afiseaza mai multe propozitii (cate una per console.log()) care sa afiseze: “Larry are xx ani. Steven are …”
+`);
+for (let i = 0; i < friendsKeysArray.length[(0, 1)]; i++) {
+  let friendObject = person.friends[friendsKeysArray[i]];
+  let sentenceFragment = person.age;
+
+  console.log(`${friendObject.name} are ${sentenceFragment}`);
+}
+
+//Nici asta nu stiu daca e ok
+
+console.warn(`
+Calculeaza suprafata de tapet necesara pentru o
+camera de 12 pe 9 m cu tavan inalt de 2.5m, stiind ca exista o
+usa de 3 pe 2 si o suprafata de ferestre de 3 pe 2.
+`);
+let longWallSurface = calculateRectangleArea(12, 2, 5);
+let shortWallSurface = calculateRectangleArea(9);
+let totalWallSurface = 2 * (longWallSurface + shortWallSurface);
+let doorSurface = calculateRectangleArea(3, 2);
+let windowSurface = calculateRectangleArea(3, 2);
+console.log(`
+  Suprafata de tapet este:
+  ${totalWallSurface - doorSurface - windowSurface}.
+  `);

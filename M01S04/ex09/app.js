@@ -89,3 +89,7 @@ let i = 1;
 var number = prompt('Introdu un numar');
 var value = prompt('Introdu o limita Inferioara');
 var value1 = prompt('Introdu o limita superioara');
+
+let fruits = ['Apple', 'Banana'];
+
+console.log(fruits.length);
