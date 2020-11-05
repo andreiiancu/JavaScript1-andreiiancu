@@ -110,53 +110,55 @@
 // `);
 // //Nu i-am dat de cap...
 
-let person = {
-  name: 'Dragos',
-  surname: 'Iordache',
-  age: 32,
-  petOwner: false,
-  skills: [
-    'html',
-    'javascript',
-    'css',
-    'java',
-    'c++',
-    'node',
-    'jquery',
-    'node.js',
-  ],
-  friends: [
-    {
-      name: 'Larry',
-      surname: 'Larryson',
-      age: 30,
-    },
-    {
-      name: 'Steven',
-      surname: 'Stevenson',
-      age: 31,
-    },
-    {
-      name: 'Carol',
-      surname: 'Carolson',
-      age: 29,
-    },
-  ],
-};
+// let person = {
+//   name: 'Dragos',
+//   surname: 'Iordache',
+//   age: 32,
+//   petOwner: false,
+//   skills: [
+//     'html',
+//     'javascript',
+//     'css',
+//     'java',
+//     'c++',
+//     'node',
+//     'jquery',
+//     'node.js',
+//   ],
+//   friends: [
+//     {
+//       name: 'Larry',
+//       surname: 'Larryson',
+//       age: 30,
+//     },
+//     {
+//       name: 'Steven',
+//       surname: 'Stevenson',
+//       age: 31,
+//     },
+//     {
+//       name: 'Carol',
+//       surname: 'Carolson',
+//       age: 29,
+//     },
+//   ],
+// };
 
-console.warn(`
-  Folosind fisierele de la exercitiul 06, si doua bucle for imbricate (nested) afiseaza
-  diferenta de varsta dintre fiecare membru al arrayului friends si ceilalti membri.
-  Poti folosi metoda pentru a converti numerele negative in pozitive.
-`);
-sentence = '';
-person.friends.forEach((friend) => {
-  let ageDiff = Math.abs(friend.age - friend.age);
+// console.warn(`
+//   Folosind fisierele de la exercitiul 06, si doua bucle for imbricate (nested) afiseaza
+//   diferenta de varsta dintre fiecare membru al arrayului friends si ceilalti membri.
+//   Poti folosi metoda pentru a converti numerele negative in pozitive.
+// `);
+// sentence = '';
+// person.friends.forEach((friend) => {
+//   let ageDiff = Math.abs(friend.age - friend.age);
 
-  sentence += `
-  Intre ${person.friends[0].name} si ${person.friends[1].name} este o diferenta de ${ageDiff} ani.
-  Intre ${person.friends[1].name} si ${person.friends[2].name} este o diferenta de ${ageDiff} ani.
-  `;
-});
-console.log(sentence);
-//Nu reusesc sa-mi dau seama cum trebuie sa fac ca sa apara si diferenta de ani corecta.
+//   sentence += `
+//   Intre ${person.friends[0].name} si ${person.friends[1].name} este o diferenta de ${ageDiff} ani.
+//   Intre ${person.friends[1].name} si ${person.friends[2].name} este o diferenta de ${ageDiff} ani.
+//   `;
+// });
+// console.log(sentence);
+// //Nu reusesc sa-mi dau seama cum trebuie sa fac ca sa apara si diferenta de ani corecta.
+
+//ex 10

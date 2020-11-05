@@ -69,3 +69,12 @@ console.log(
     102,
   )}mp.`,
 );
+let calculateAggregateSurface = (L1, l1, L2, l2) => {
+  let surface1 = calculateRectangleArea(L1, l1);
+  let surface2 = calculateRectangleArea(L2, l2);
+
+  return surface1 + surface2;
+};
+
+console.log(calculateAggregateSurface(48, 92, 51, 102));
+//ex 05
