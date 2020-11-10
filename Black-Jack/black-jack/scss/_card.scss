@@ -1,6 +1,6 @@
 .card {
   width: 140px;
-  height: 280px;
+  height: 240px;
   background-color: #fff;
   border-radius: 13px;
   padding: 10px;
@@ -13,12 +13,21 @@
   }
 }
 
-.card_number--secondary {
+.card__number {
+  display: inline;
+}
+
+.card__number--secondary {
   align-self: flex-end;
   transform: rotate(180deg);
 }
 
-.card_digit {
+.card__number--primary {
+  align-self: flex-start;
+}
+
+.card__digit {
   font-size: 22px;
+  line-height: 22px;
   font-weight: bold;
 }
