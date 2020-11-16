@@ -51,7 +51,6 @@ function setGameOver() {
   document.body.append(resetButton);
   resetButton.addEventListener('click', resetGame);
   resetButton.style.background = 'green';
-  resetButton.form.align - content - lg - center;
 }
 
 function resetGame() {
