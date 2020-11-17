@@ -16,25 +16,19 @@ html {
 	}
 }
 
-
 body {
-  background-color:#FB8521;
-  border: #e72a3a solid 5px;
+ background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
   width: 1100px;
   margin-top: 10rem;
   margin-left: 28rem;
   height: 40rem;
-
-
 }
-
-
 
 /* the title */
 h1, .luck {
-display: flex;
-margin-left: 8rem;
-justify-content: center;
+  display: flex;
+  margin-left: 8rem;
+  justify-content: center;
   position:relative;
   font-family:'Cyberspace-Raceway-Back',sans-serif;
   font-size:4rem;
@@ -48,26 +42,26 @@ justify-content: center;
 	font-style: italic;
 	font-weight: 300;
 	src: local("Lato Light Italic"), local("Lato-LightItalic"),
-		url(https://fonts.gstatic.com/s/ubuntucondensed/v8/u-4k0rCzjgs5J7oXnJcM_0kACGMtT-Dfqw.woff2)
-			format("woff2");
+	url(https://fonts.gstatic.com/s/ubuntucondensed/v8/u-4k0rCzjgs5J7oXnJcM_0kACGMtT-Dfqw.woff2)
+		format("woff2");
 }
 
-		font-size: 92px;
-		font-family: "ubuntu";
-		text-transform: uppercase;
-		font-weight: 700;
-		font-family: "Josefin Sans", sans-serif;
-		background: linear-gradient(to right, #e72a3a 10%, #fff 50%, #5bdaff 60%);
-		background-size: auto auto;
-		background-clip: border-box;
-		background-size: 200% auto;
-    background-clip: text;
-		color: #fff;
-		text-fill-color: transparent;
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		animation: textclip 1.5s linear infinite;
-    display: inline-block;
+	font-size: 92px;
+	font-family: "ubuntu";
+	text-transform: uppercase;
+	font-weight: 700;
+	font-family: "Josefin Sans", sans-serif;
+	background: linear-gradient(to right, #e72a3a 10%, #fff 50%, #5bdaff 60%);
+	background-size: auto auto;
+	background-clip: border-box;
+	background-size: 200% auto;
+  background-clip: text;
+	color: #fff;
+	text-fill-color: transparent;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	animation: textclip 1.5s linear infinite;
+  display: inline-block;
 
 }
 
@@ -110,18 +104,57 @@ p {
 
 }
 
-
-
-.guessField {
-  border: 3px solid red;
-  height: 3rem;
-  text-decoration-color: #d52323;
+.guessField, .guesSubmit {
+  font-size: 0.75em;
+  color: #8e44ad;
+  font-optical-sizing: 34px;
+  top: -2.25rem;
+  transition: all 0.125s cubic-bezier(0.2, 0, 0.03, 1);
+  color: white;
+  padding: 1rem;
+  position: relative;
+  top: 0;
+  left: 0;
+  transition: all 0.25s cubic-bezier(0.2, 0, 0.03, 1);
+  pointer-events: none;
+  padding: 1rem 1rem;
+  border: none;
+  width: 5%;
+  font-size: 1.5rem;
+  height: 11px;
+  background-color: rgba(172, 255, 47, 0.5);
+  bottom: 0;
+  left: 0;
+  transition: all 0.125s cubic-bezier(0.2, 0, 0.03, 1);
+  border-bottom: #fff;
+  border-radius: 3px;
 }
 
-.guesSubmit {
-  border: #d52323 3px solid;
+.guessSubmit  {
+  font-size: 0.75em;
+  background-color: rgba(172, 255, 47, 0.5);
+  color: white;
+  top: -2.25rem;
+  margin-left: 1rem;
+  border: none;
 }
 
-.guesSubmit :hover {
-  background-color: gold;
+.reset {
+  display: grid;
+ background-color: olivedrab;
+ font-size: 1rem;
+ font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: white;
+  padding: 20px;
+  border-radius: 30px;
+  outline: none;
+  margin-top: -20px;
+  border: none;
+  animation: blink 0.4s infinite;
+  margin-left: 55rem;
+  margin-bottom: 25rem;
 }
+  @keyframes blink {
+    0% {
+      background-color: red
+    }
