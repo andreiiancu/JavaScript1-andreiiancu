@@ -1,80 +1,83 @@
 class Vehicle {
-  constructor(make, color, wheels, speed, topSpeed, topReverseSpeed) {
-    this.make = make;
-    this.color = color;
-    this.wheels = wheels;
-    this.speed = speed;
-    this.topSpeed = topSpeed;
-    this.topReverseSpeed = topReverseSpeed;
-  }
+    constructor(make, color, wheels, speed, topSpeed, topReverseSpeed) {
+        this.make = make;
+        this.color = color;
+        this.wheels = wheels;
+        this.speed = speed;
+        this.topSpeed = topSpeed;
+        this.topReverseSpeed = topReverseSpeed;
+    }
 
-  displaySpeed() {
-    console.log(`Viteza curenta este: ${this.speed}`);
-  }
+    // displaySpeed() {
+    //     console.log(`Viteza curenta este: ${this.speed}`);
+    // }
+    displaySpeed() {
+        console.log(`Viteza curenta a ${this.make} este: ${this.speed}`);
+    }
 
-  getSpeed(format) {
-    let speed = format === true ? `${this.speed} km/h` : this.speed;
+    getSpeed(format) {
+        let speed = format === true ? `${this.speed} km/h` : this.speed;
 
-    return speed;
-  }
+        return speed;
+    }
+}
 
-  accelerate() {
-    this  newSpeed = this.speed + 1;
+accelerate() {
+    this.newSpeed = this.speed + 1;
     this.setSpeed(newSpeed);
-
     // this.displaySpeed();
-  }
+}
 
-  decelerate() {
+decelerate() {
     this.speed - 1;
 
     this.setSpeed(newSpeed);
-  }
+}
 
-  stop() {
+stop() {
     this.setSpeed(0);
-  }
+}
 
-  setSpeed(speed) {
+setSpeed(speed) {
     if (speed > this.topSpeed) {
-      this.speed = this.topSpeed;
+        this.speed = this.topSpeed;
 
-      this.displaySpeed();
-      return;
+        this.displaySpeed();
+        return;
     }
 
     if (speed < this.topReverseSpeed) {
-      this.speed = this.accelerate.topReverseSpeed;
+        this.speed = this.accelerate.topReverseSpeed;
 
-      this.displaySpeed();
-      return;
+        this.displaySpeed();
+        return;
     }
 
     this.speed = speed;
     this.displaySpeed();
-  }
 }
 
+
 class Car extends Vehicle {
-  constructor(make, color, speed, topSpeed, topReverseSpeed) {
-    super(make, color, 4, speed, topSpeed, topReverseSpeed);
-  }
+    constructor(make, color, speed, topSpeed, topReverseSpeed) {
+        super(make, color, 4, speed, topSpeed, topReverseSpeed);
+    }
 }
 
 class Bicycle extends Vehicle {
-  contructor(make, color, speed, topSpeed) {
-    supper(make, color, 2, speed, topSpeed, 0);
-  }
-
-  decelerate() {
-    //let speed = this.speed --;
-    //if (speed<0) {}
-    if (--this.speed < this.topReverseSpeed) {
-      this.speed = this.topReverseSpeed;
+    contructor(make, color, speed, topSpeed) {
+        supper(make, color, 2, speed, topSpeed, 0);
     }
 
-    this.displaySpeed();
-  }
+    decelerate() {
+        //let speed = this.speed --;
+        //if (speed<0) {}
+        if (--this.speed < this.topReverseSpeed) {
+            this.speed = this.topReverseSpeed;
+        }
+
+        this.displaySpeed();
+    }
 }
 
 // Instantiaza o bicicleta (marca Pegas, culoare red,
@@ -101,9 +104,9 @@ bike.setSpeed(-10);
 // Foloseste metoda decelerate() de trei ori, ce observi?
 // Seteaza viteza instantei trike la -10, ce observi?
 class Tricycle extends Vehicle {
-  constructor(make, color, speed, topSpeed, topReverseSpeed) {
-    super(make, color, 3, speed, topSpeed, topReverseSpeed);
-  }
+    constructor(make, color, speed, topSpeed, topReverseSpeed) {
+        super(make, color, 3, speed, topSpeed, topReverseSpeed);
+    }
 }
 
 let trike = new Tricycle('Tryke', 'red', 2, 9, -2);
@@ -121,3 +124,6 @@ trike.decelerate();
 let audy = new Car('Audi', 'blue', 3, 140, -50);
 Audio.setSpeed(140);
 Audio.accelerate()
+
+// refactor setSpeed pentru a functiona cu if else si modificarea metodei
+// displaySpeed astfel incat sa spuna Viteza curent a vehiculului "make" este:
