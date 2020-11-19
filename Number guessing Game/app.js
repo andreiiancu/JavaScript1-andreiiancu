@@ -1,4 +1,6 @@
 let randomNumber = Math.floor(Math.random() * 100) + 1;
+let randomNumberFifty = Math.floor(Math.random() * 50) + 1;
+let randomNumberTen = Math.floor(Math.random() * 10) + 1;
 
 const guesses = document.querySelector('.guesses');
 const lastResult = document.querySelector('.lastResult');
@@ -6,6 +8,9 @@ const lowOrHi = document.querySelector('.lowOrHi');
 
 const guessSubmit = document.querySelector('.guessSubmit');
 const guessField = document.querySelector('.guessField');
+const limitRandomTen = document.querySelector('limitRandomTen');
+const limitRandomFifty = document.querySelector('limitRandomFifty');
+const limitRandomOneHundred = document.querySelector('limitRandomOneHundred');
 
 guessSubmit.addEventListener('click', checkGuess);
 
