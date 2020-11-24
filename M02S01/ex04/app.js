@@ -24,18 +24,48 @@ class Car {
     wheelBack = document.createElement('div');
     hubCapFront = document.createElement('div');
     hubCapBack = document.createElement('div');
+    hazardInterval = 500;
 
     move(left = 0, top = 0) {
-      let left = parseInt(left);
-      let top = parseInt(top);
+        left = parseInt(left);
+        top = parseInt(top);
 
-      if (is NaN(left) || isNaN(top)) {
-        left = 0;
-        top = 0;
-      }
+        if (isNaN(left) || isNaN(top)) {
+            left = 0;
+            top = 0;
+        }
 
-      this,frame.style.left = `${left}px`;
-      this.frame.style.top = `${top}px`;
+        this.frame.style.left = `${left}px`;
+        this.frame.style.top = `${top}px`;
+    }
+
+    changeColor(object, color = '#000') {
+        if (!this.hasOwnProperty(object) || this[object].nodeName === undefined) {
+            console.warn(`Nu am gasit obiectul ${object} pe aceasta instanta.`);
+
+            return;
+        }
+
+        // object bracket notation
+        this[object].style.backgroundColor = color;
+    }
+
+    toggleHazards() {
+        if (this.intervalId === undefined) {
+            this.intervalId = setInterval(() => {
+                this.toggleLights();
+            }, this.hazardInterval);
+        } else {
+            clearInterval(this.intervalId);
+            this.lightFront.classList.remove('light--on');
+            this.lightBack.classList.remove('light--on');
+            delete this.intervalId;
+        }
+    }
+
+    toggleLights() {
+        this.lightFront.classList.toggle('light--on');
+        this.lightBack.classList.toggle('light--on');
     }
 
     render() {
