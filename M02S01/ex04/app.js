@@ -25,6 +25,19 @@ class Car {
     hubCapFront = document.createElement('div');
     hubCapBack = document.createElement('div');
 
+    move(left = 0, top = 0) {
+      let left = parseInt(left);
+      let top = parseInt(top);
+
+      if (is NaN(left) || isNaN(top)) {
+        left = 0;
+        top = 0;
+      }
+
+      this,frame.style.left = `${left}px`;
+      this.frame.style.top = `${top}px`;
+    }
+
     render() {
         this.frame.classList.add('frame');
         this.frame.style.cssText = `left: ${this.left}px; top: ${this.top}px;`;
