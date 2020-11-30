@@ -48,3 +48,13 @@ audi.topSpeed = 140;
 // Ruleaza metoda accelerate().
 audi.setSpeed(140);
 audi.accelerate();
+
+// Adauga o proprietate booleana numita areLightsOn si asigneaza-i valoarea false.
+// Adauga metode numite turnLightsOn() si turnLightsOff() care sa manipuleze valoarea.
+var areLigtsOn = false;
+
+if (areLigtsOn) {
+    turnLightsOn();
+} else {
+    turnLightsOff();
+}
