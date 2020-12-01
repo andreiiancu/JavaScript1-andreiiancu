@@ -123,12 +123,12 @@ car3.render();
 
 // Creeaza metode numite engageBreak() si disenagageBreak() care vor aprinde respectiv stinge farul din spate.
 
-engageBreak() {
-    if {
-        this.lightBack.classList.toggle.add('light--on')
-    } else {
-        disenagageBreak() {
-            this.lightBack.classList.toggle.remove('light--on')
-        }
-    }
-}
+// engageBreak() {
+//     if {
+//         this.lightBack.classList.toggle.add('light--on')
+//     } else {
+//         disenagageBreak() {
+//             this.lightBack.classList.toggle.remove('light--on')
+//         }
+//     }
+// }
