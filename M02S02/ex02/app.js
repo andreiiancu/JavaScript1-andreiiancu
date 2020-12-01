@@ -1,106 +1,190 @@
-const formId = 'personForm';
-const createSkillUl = () => {
-  const ulId = 'skills-list';
-  let $ul = $(`#${ulId}`);
-
-  if ($ul.length !== 1) {
-    $ul = $('<ul>', {
-      id: ulId,
+const createTextCaptureInput = (placeholder = 'Adauga o valoare') => {
+    const $widget = $('<div>', {
+        class: 'text-widget',
     });
 
-    $(`#${formId}`).after($ul);
+    $widget
+        .append(
+            $('<input>', {
+                type: 'text',
+                placeholder,
+            }),
+        )
+        .append(
+            $('<button>', {
+                type: 'button',
+                text: 'Salveaza',
+                class: 'save',
+            }),
+        )
+        .append(
+            $('<button>', {
+                type: 'button',
+                text: 'Renunta',
+                class: 'cancel',
+            }),
+        );
 
-    $ul.on('click', 'button', (event) => {
-      const $element = $(event.currentTarget);
-
-      $element.parent().remove();
-    });
-  }
-
-  return $ul;
+    return $widget;
 };
 
-const createPersonDetails = () => {
-  const detailsId = 'person-details';
-  let $p = $(`#${detailsId}`);
+const formId = 'personForm';
+const createSkillUl = () => {
+    const ulId = 'skills-list';
+    let $ul = $(`#${ulId}`);
+    let editMode = false;
 
-  if ($p.length < 1) {
-    $p = $('<p>', {
-      id: detailsId,
-    });
+    if ($ul.length !== 1) {
+        $ul = $('<ul>', {
+            id: ulId,
+        });
 
-    $(`#${formId}`).after($p);
-  }
+        $(`#${formId}`).after($ul);
 
-  return $p;
+        $ul.on('click', '.delete', (event) => {
+            const $element = $(event.currentTarget);
+
+            editMode = false;
+            $element.parent().remove();
+        });
+
+        $ul.on('click', '.edit', (event) => {
+            if (editMode === true) {
+                return;
+            }
+            editMode = true;
+
+            const $element = $(event.currentTarget);
+            const $parentLi = $element.parent();
+            const $widget = createTextCaptureInput('Modifica numele skillului.');
+
+            $parentLi.prepend($widget);
+        });
+
+        $ul.on('click', '.text-widget .cancel', (event) => {
+            editMode = false;
+            // nu asa se face:
+            // $(.text-widget).remove()
+            // event.currentTarget.parentElement.remove();
+
+            $(event.currentTarget).parent().remove();
+        });
+
+        $ul.on('click', '.text-widget .save', function() {
+            $saveButton = $(this);
+            // let value = this.previousElementSibling.value;
+            let value = $saveButton.prev().val();
+            let $parentLi = $saveButton.parents('li');
+
+            // $parentLi.children('.skill-text')
+            $parentLi.find('.skill-text').text(value);
+
+            editMode = false;
+            $saveButton.parent().remove();
+        });
+    }
+
+    return $ul;
+};
+
+const createCreatureDetails = (detailsId) => {
+    let $p = $(`#${detailsId}`);
+
+    if ($p.length < 1) {
+        $p = $('<p>', {
+            id: detailsId,
+        });
+
+        $(`#${formId}`).after($p);
+    }
+
+    return $p;
 };
 
 $(document).ready(() => {
-  let $skillInput = $('#skills');
-  // nextElementSibling <- DOM
-  $skillInput.next().on('click', () => {
-    const value = $skillInput.val(); // DOM -> elem.value
-    const $skillsUl = createSkillUl();
-    const $skillLi = $('<li>', {
-      text: value,
-    })
-      .append(
-        $('<button>', {
-          text: '-',
-        }),
-      )
-      .append(
-        $('<button>', {
-          text: 'Edit',
-        }),
-      );
+    let $skillInput = $('#skills');
+    // nextElementSibling <- DOM
+    $skillInput.next().on('click', () => {
+        const value = $skillInput.val(); // DOM -> elem.value
+        const $skillsUl = createSkillUl();
+        const $skillLi = $('<li>')
+            .append(
+                $('<span>', {
+                    class: 'skill-text',
+                    text: value,
+                }),
+            )
+            .append(
+                $('<button>', {
+                    text: '-',
+                    class: 'delete',
+                    // skill__button
+                }),
+            )
+            .append(
+                $('<button>', {
+                    text: 'Edit',
+                    class: 'edit',
+                }),
+            );
 
-    $skillsUl.append($skillLi);
+        $skillsUl.append($skillLi);
 
-    $skillInput.val('');
-  });
-
-  // function version:
-  $(`#${formId}`).on('submit', function (event) {
-    let $form = $(this); // <-- function version this = dom element
-    const data = $form.serializeArray();
-    const desiredKeys = ['name', 'surname', 'age'];
-
-    const userData = data.filter((key) => {
-      if (desiredKeys.includes(key.name)) {
-        return true;
-      } else {
-        return false;
-      }
+        $skillInput.val('');
     });
 
-    $personDetails = createPersonDetails();
-    let message = `
+    // function version:
+    $(`#${formId}`).on('submit', function(event) {
+        let $form = $(this); // <-- function version this = dom element
+        const data = $form.serializeArray();
+        const desiredKeys = ['name', 'surname', 'age'];
+
+        const userData = data.filter((key) => {
+            if (desiredKeys.includes(key.name)) {
+                return true;
+            } else {
+                return false;
+            }
+        });
+
+        $personDetails = createCreatureDetails('person-details');
+        let message = `
       Numele meu este ${userData[0].value} ${userData[1].value} si am ${userData[2].value} ani.
     `;
-    $personDetails.text(message);
+        $personDetails.text(message);
 
-    event.preventDefault();
-  });
+        event.preventDefault();
+    });
+
+    // pt form elements, -> mai bine change
+    $('#pet-checkbox').on('change', function() {
+        const checked = $(this).is(':checked');
+        const $petFieldset = $(this).parent().next();
+
+        if (checked === true) {
+            $petFieldset.slideDown();
+        } else {
+            $petFieldset.slideUp();
+        }
+    });
+
+    $('#add-pet').on('click', () => {
+        $form = $(`#${formId}`);
+        const data = $form.serializeArray();
+        const desiredKeys = ['pet-name', 'pet-species', 'pet-age'];
+
+        const petData = data.filter((key) => {
+            if (desiredKeys.includes(key.name)) {
+                return true;
+            } else {
+                return false;
+            }
+        });
+
+        $petDetails = createCreatureDetails('pet-details');
+        let message = `
+      Animalul se numeste ${petData[0].value} este ${petData[1].value} si are ${petData[2].value} ani.
+    `;
+        $petDetails.text(message);
+    });
 });
-
-// In fieldsetul Detalii adauga un input de abilitati numit
-// skills si un buton de + in dreptul sau.
-// La fiecare apasare a butonului, daca in input exista text,
-// afiseaza abilitatea noua intr-o lista neordonata.
-// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/push
-
-let skills = {
-    length: 0,
-
-    addElem: function addElem(skills) {
-        // obj.length is automatically incremented
-        // every time an element is added.
-        [].push.call(this, elem)
-    }
-}
-
-// Let's add some empty objects just to illustrate.
-skills.addElem({})
-skills.addElem({})
-console.log(skills.length)
